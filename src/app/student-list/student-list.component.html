@@ -1,15 +1,31 @@
 <main>
-    <style>
-        /* CSS styles from above */
-    </style>
-    
     <div class="container">
         <div class="row justify-content-center">
-            <!-- Add Student Form Section -->
+            <div class="col-md-6 student-table">
+                <h1>Student List</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students">
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.age }}</td>
+                            <td>{{ student.grade }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="col-md-6 mb-4">
                 <h2 class="text-center">Add Student</h2>
                 
-                <!-- Form Fields -->
                 <div class="form-group row">
                     <label for="id" class="col-sm-3 col-form-label">Id:</label>
                     <div class="col-sm-9">
@@ -38,34 +54,64 @@
                     </div>
                 </div>
 
-                <!-- Button with margin -->
                 <div class="text-center">
                     <button class="btn btn-primary mt-3" (click)="addStudent()">Add Student</button>
                 </div>
             </div>
-
-            <!-- Student List Table Section moved to the right of the form -->
-            <div class="col-md-6 student-table">
-                <h2>Student List</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Grade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let student of students">
-                            <td>{{ student.id }}</td>
-                            <td>{{ student.name }}</td>
-                            <td>{{ student.age }}</td>
-                            <td>{{ student.grade }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </main>
+<style>
+	/* CSS styles */
+	.container {
+		margin-top: 20px;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+	}
+
+	h1, h2 {
+		margin-bottom: 20px;
+	}
+
+	.table {
+		margin-top: 20px;
+	}
+
+	.text-center {
+		margin-top: 15px;
+	}
+
+	.text-center button {
+		margin-top: 20px;
+	}
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+	.student-table {
+		margin-left: auto;
+		margin-right: 0;
+	}
+
+	@media (max-width: 768px) {
+		.col-md-6 {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+	}
+
+	.btn {
+		background-color: #007bff;
+		color: white;
+		border: none;
+		padding: 10px 15px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+
+	.btn:hover {
+		background-color: #0056b3;
+	}
+</style>

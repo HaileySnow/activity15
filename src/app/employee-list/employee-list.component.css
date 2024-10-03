@@ -1,0 +1,36 @@
+.container {
+    margin-top: 20px; /* Adds some space at the top */
+}
+
+h1, h2 {
+    margin-bottom: 20px; /* Space below the headings */
+}
+
+.table {
+    margin-top: 20px; /* Adds space above the table */
+}
+
+.text-center {
+    margin-top: 15px; /* Space above the button */
+}
+
+.text-center button {
+    margin-top: 20px; /* Additional space above the button */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Adjusts alignment for the student list table */
+.student-table {
+    margin-left: 100px; /* Moves the table to the right */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 100%; /* Stack columns on small screens */
+        max-width: 100%;
+    }
+}

@@ -1,24 +1,56 @@
-
+/* Container for layout */
 .container {
-  display: flex;
+  display: flex; /* Flexbox layout */
 }
 
+/* Sidebar styles */
 .sidebar {
   width: 20%; /* Adjust the width of the sidebar */
-  background-color: #f0f0f0; /* Optional: Add background color */
-  padding: 10px;
+  background-color: #f0f0f0; /* Light gray background for visibility */
+  padding: 10px; /* Padding inside the sidebar */
 }
 
 .sidebar ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
 }
 
 .sidebar li {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Space between list items */
 }
 
+.sidebar a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Default link color */
+}
+
+.sidebar a:hover {
+  color: #007BFF; /* Change color on hover */
+  font-weight: bold; /* Make text bold on hover */
+}
+
+/* Content area styles */
 .content {
-  width: 80%; /* Adjust the width of the content */
-  padding: 20px;
+  width: 80%; /* Adjust the width of the content area */
+  padding: 20px; /* Padding around content */
+}
+
+/* Active link indicator (optional) */
+.sidebar a.active {
+  font-weight: bold; /* Highlight active link */
+  color: #007BFF; /* Active link color */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full width for sidebar on small screens */
+    order: 1; /* Sidebar appears above content */
+  }
+
+  .content {
+    width: 100%; /* Full width for content on small screens */
+    order: 2; /* Content appears below sidebar */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
 }
