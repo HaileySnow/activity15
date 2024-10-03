@@ -1,0 +1,113 @@
+<main>
+    <div class="container">
+        <h2 class="text-center">Car Model List</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let carModel of carModels">
+                        <td>{{ carModel.id }}</td>
+                        <td>{{ carModel.name }}</td>
+                        <td>{{ carModel.year }}</td>
+                        <td>{{ carModel.make }}</td>
+                        <td>{{ carModel.model }}</td>
+                        <td>{{ carModel.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-car-model">
+            <h2 class="text-center">Add Car Model</h2>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Id:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="id" [(ngModel)]="id" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="year" class="col-sm-3 col-form-label">Year:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="year" [(ngModel)]="year" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="make" class="col-sm-3 col-form-label">Make:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="make" [(ngModel)]="make" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="model" class="col-sm-3 col-form-label">Model:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="model" [(ngModel)]="model" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="price" [(ngModel)]="price" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addCarModel()">Add Car Model</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
