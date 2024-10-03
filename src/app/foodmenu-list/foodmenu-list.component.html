@@ -1,0 +1,75 @@
+<main class="container">
+    <h1 class="text-center">Food Menu</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let foodMenu of foodMenuList">
+                    <td>{{ foodMenu.name }}</td>
+                    <td>{{ foodMenu.price }}</td>
+                    <td>{{ foodMenu.rating }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="text-center mt-4">Add New Food Item</h2>
+    
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Name:</label>
+        <div class="col-sm-9">
+            <input type="text" id="name" class="form-control" [(ngModel)]="name" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="price" class="col-sm-3 col-form-label">Price:</label>
+        <div class="col-sm-9">
+            <input type="number" id="price" class="form-control" [(ngModel)]="price" required />
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="addFoodMenu()">Add Food</button>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
