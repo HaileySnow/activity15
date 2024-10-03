@@ -11,6 +11,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { CarmodelListComponent } from './carmodel-list/carmodel-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
+import { CountryListComponent } from './country-list/country-list.component';
 
 
 export const routes: Routes = [
@@ -63,6 +64,11 @@ export const routes: Routes = [
 		title: 'Subject List',
 		component: SubjectListComponent,
 		path: 'subject-list',
+	},
+	{
+		title: 'Country List',
+		component: CountryListComponent,
+		path: 'country-list',
 	},
 	
 
