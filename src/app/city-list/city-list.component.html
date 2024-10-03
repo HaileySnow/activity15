@@ -1,0 +1,123 @@
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- City List Table Section -->
+            <div class="col-md-6 city-table">
+                <h2 class="text-center">City List</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>City ID</th>
+                                <th>City Name</th>
+                                <th>Country</th>
+                                <th>Population</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let city of cities">
+                                <td>{{ city.id }}</td>
+                                <td>{{ city.name }}</td>
+                                <td>{{ city.country }}</td>
+                                <td>{{ city.population }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add City Form Section -->
+            <div class="col-md-6 mb-4">
+                <h2 class="text-center">Add City</h2>
+
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">City ID:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id" [(ngModel)]="id" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">City Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="country" class="col-sm-3 col-form-label">Country:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="country" [(ngModel)]="country" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="population" class="col-sm-3 col-form-label">Population:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="population" [(ngModel)]="population" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3" (click)="addCity()">Add City</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* CSS styles */
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .text-center {
+        margin-top: 15px;
+    }
+
+    .text-center button {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .city-table {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
