@@ -1,0 +1,71 @@
+<main>
+    <style>
+        /* CSS styles from above */
+    </style>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Add Student Form Section -->
+            <div class="col-md-6 mb-4">
+                <h2 class="text-center">Add Student</h2>
+                
+                <!-- Form Fields -->
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Id:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="id" [(ngModel)]="id" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="age" class="col-sm-3 col-form-label">Age:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="age" [(ngModel)]="age" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="grade" class="col-sm-3 col-form-label">Grade:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="grade" [(ngModel)]="grade" class="form-control" required />
+                    </div>
+                </div>
+
+                <!-- Button with margin -->
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3" (click)="addStudent()">Add Student</button>
+                </div>
+            </div>
+
+            <!-- Student List Table Section moved to the right of the form -->
+            <div class="col-md-6 student-table">
+                <h2>Student List</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students">
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.age }}</td>
+                            <td>{{ student.grade }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
