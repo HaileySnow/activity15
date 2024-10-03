@@ -1,23 +1,26 @@
 <main class="container">
-    <h1 class="text-center">Food Menu</h1>
+    <h1 class="text-center">Grocery List</h1>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let foodMenu of foodMenuList">
-                    <td>{{ foodMenu.name }}</td>
-                    <td>{{ foodMenu.price }}</td>
+                <tr *ngFor="let grocery of groceryList">
+                    <td>{{ grocery.name }}</td>
+                    <td>{{ grocery.price }}</td>
+                    <td>{{ grocery.quantity }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
 
-    <h2 class="text-center mt-4">Add New Food Item</h2>
-    
+    <h2 class="mt-4">Add New Grocery Item</h2>
+
     <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label">Name:</label>
         <div class="col-sm-9">
@@ -28,12 +31,19 @@
     <div class="form-group row">
         <label for="price" class="col-sm-3 col-form-label">Price:</label>
         <div class="col-sm-9">
-            <input type="number" id="price" class="form-control" [(ngModel)]="price" required />
+            <input type="text" id="price" class="form-control" [(ngModel)]="price" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="quantity" class="col-sm-3 col-form-label">Quantity:</label>
+        <div class="col-sm-9">
+            <input type="number" id="quantity" class="form-control" [(ngModel)]="quantity" required />
         </div>
     </div>
 
     <div class="text-center">
-        <button class="btn btn-primary" (click)="addFoodMenu()">Add Food</button>
+        <button class="btn btn-primary" (click)="addGrocery()">Add Grocery</button>
     </div>
 </main>
 
