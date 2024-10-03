@@ -1,0 +1,85 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Sports List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sport of sports">
+                        <td>{{ sport.id }}</td>
+                        <td>{{ sport.name }}</td>
+                        <td>{{ sport.team }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-sport">
+            <h2 class="text-center">Add Sport</h2>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Id:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="id" [(ngModel)]="id" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="team" class="col-sm-3 col-form-label">Team:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="team" [(ngModel)]="team" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addSport()">Add Sport</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
