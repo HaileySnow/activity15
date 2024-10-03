@@ -1,0 +1,122 @@
+<main>
+    <div class="container">
+        <h1>Fruit List</h1>
+        <div class="row justify-content-center">
+            <!-- Fruit List Table Section -->
+            <div class="col-md-6 fruit-table">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let fruit of fruits">
+                                <td>{{ fruit.id }}</td>
+                                <td>{{ fruit.name }}</td>
+                                <td>{{ fruit.quantity }}</td>
+                                <td>{{ fruit.price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Fruit Form Section -->
+            <div class="col-md-6 mb-4">
+                <h2>Add Fruit</h2>
+
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Id:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id" [(ngModel)]="id" name="id" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="quantity" class="col-sm-3 col-form-label">Quantity:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="quantity" [(ngModel)]="quantity" name="quantity" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="price" [(ngModel)]="price" name="price" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3" (click)="addFruit()">Add Fruit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* CSS styles */
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .text-center {
+        margin-top: 15px;
+    }
+
+    .text-center button {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .fruit-table {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
