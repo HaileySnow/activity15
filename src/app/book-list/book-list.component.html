@@ -1,0 +1,113 @@
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Book List Table Section -->
+            <div class="col-md-6 book-table">
+                <h2 class="text-center">Book List</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Book Name</th>
+                                <th>ISBN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let book of books">
+                                <td>{{ book.id }}</td>
+                                <td>{{ book.name }}</td>
+                                <td>{{ book.isbn }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Book Form Section -->
+            <div class="col-md-6 mb-4">
+                <h2 class="text-center">Add Book</h2>
+
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Book ID:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id" [(ngModel)]="id" class="form-control" placeholder="Book ID" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Book Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" [(ngModel)]="name" class="form-control" placeholder="Book Name" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="isbn" class="col-sm-3 col-form-label">ISBN:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="isbn" [(ngModel)]="isbn" class="form-control" placeholder="ISBN" required />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3" (click)="addBook()">Add Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* CSS styles */
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .text-center {
+        margin-top: 15px;
+    }
+
+    .text-center button {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .book-table {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
