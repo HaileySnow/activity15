@@ -1,0 +1,77 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Music Play List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Artist</th>
+                        <th>Song</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let music of musicPlayList">
+                        <td>{{ music.artist }}</td>
+                        <td>{{ music.song }}</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-music-form">
+            <h2 class="text-center">Add Music</h2>
+
+            <div class="form-group row">
+                <label for="artist" class="col-sm-3 col-form-label">Artist:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="artist" [(ngModel)]="artist" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="song" class="col-sm-3 col-form-label">Song:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="song" [(ngModel)]="song" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addMusicPlayList()">Add Music</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
