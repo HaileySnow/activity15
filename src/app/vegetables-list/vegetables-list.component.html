@@ -1,0 +1,85 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Vegetables List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vegetable of vegetables">
+                        <td>{{ vegetable.id }}</td>
+                        <td>{{ vegetable.name }}</td>
+                        <td>{{ vegetable.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-vegetable">
+            <h2 class="text-center">Add Vegetable</h2>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Id:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="id" [(ngModel)]="id" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="price" [(ngModel)]="price" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addVegetable()">Add Vegetable</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
