@@ -1,0 +1,103 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Tool List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tool of tools">
+                        <td>{{ tool.id }}</td>
+                        <td>{{ tool.name }}</td>
+                        <td>{{ tool.description }}</td>
+                        <td>{{ tool.price }}</td>
+                        <td>{{ tool.quantity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-tool">
+            <h2 class="text-center">Add Tool</h2>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">ID:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="id" [(ngModel)]="id" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="description" [(ngModel)]="description" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="price" [(ngModel)]="price" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="quantity" class="col-sm-3 col-form-label">Quantity:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="quantity" [(ngModel)]="quantity" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addTool()">Add Tool</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
