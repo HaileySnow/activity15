@@ -1,0 +1,92 @@
+<main class="container">
+    <h1 class="text-center">Classroom List</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Section</th>
+                    <th>Teacher</th>
+                    <th>Student Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let classroom of classroomList">
+                    <td>{{ classroom.id }}</td>
+                    <td>{{ classroom.section }}</td>
+                    <td>{{ classroom.teacher }}</td>
+                    <td>{{ classroom.studentCount }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="mt-4">Add New Classroom</h2>
+
+    <div class="form-group row">
+        <label for="id" class="col-sm-3 col-form-label">ID:</label>
+        <div class="col-sm-9">
+            <input type="text" id="id" class="form-control" [(ngModel)]="id" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="section" class="col-sm-3 col-form-label">Section:</label>
+        <div class="col-sm-9">
+            <input type="text" id="section" class="form-control" [(ngModel)]="section" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="teacher" class="col-sm-3 col-form-label">Teacher:</label>
+        <div class="col-sm-9">
+            <input type="text" id="teacher" class="form-control" [(ngModel)]="teacher" required />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="studentCount" class="col-sm-3 col-form-label">Student Count:</label>
+        <div class="col-sm-9">
+            <input type="number" id="studentCount" class="form-control" [(ngModel)]="studentCount" required />
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="addNewClassroom()">Add New Classroom</button>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
