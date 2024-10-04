@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Painting List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Year</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let painting of paintingList">
+                        <td>{{ painting.title }}</td>
+                        <td>{{ painting.artist }}</td>
+                        <td>{{ painting.year }}</td>
+                        <td>{{ painting.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-painting">
+            <h2 class="text-center">Add Painting</h2>
+
+            <div class="form-group row">
+                <label for="title" class="col-sm-3 col-form-label">Title:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="title" [(ngModel)]="title" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="artist" class="col-sm-3 col-form-label">Artist:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="artist" [(ngModel)]="artist" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="year" class="col-sm-3 col-form-label">Year:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="year" [(ngModel)]="year" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="price" [(ngModel)]="price" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addPainting()">Add Painting</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
