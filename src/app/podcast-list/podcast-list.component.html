@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Podcast List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Host</th>
+                        <th>Genre</th>
+                        <th>Episode Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let podcast of podcasts">
+                        <td>{{ podcast.name }}</td>
+                        <td>{{ podcast.host }}</td>
+                        <td>{{ podcast.genre }}</td>
+                        <td>{{ podcast.episodeNumber }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-podcast">
+            <h2 class="text-center">Add Podcast</h2>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="host" class="col-sm-3 col-form-label">Host:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="host" [(ngModel)]="host" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="genre" class="col-sm-3 col-form-label">Genre:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="genre" [(ngModel)]="genre" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="episodeNumber" class="col-sm-3 col-form-label">Episode Number:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="episodeNumber" [(ngModel)]="episodeNumber" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addPodcast()">Add Podcast</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
