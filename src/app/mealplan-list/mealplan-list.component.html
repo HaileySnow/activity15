@@ -1,0 +1,115 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Meal Plan List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                        <th>Snack</th>
+                        <th>Drink</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let meal of meals">
+                        <td>{{ meal.name }}</td>
+                        <td>{{ meal.breakfast }}</td>
+                        <td>{{ meal.lunch }}</td>
+                        <td>{{ meal.dinner }}</td>
+                        <td>{{ meal.snack }}</td>
+                        <td>{{ meal.drink }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-meal-plan">
+            <h2 class="text-center">Add Meal Plan</h2>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="breakfast" class="col-sm-3 col-form-label">Breakfast:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="breakfast" [(ngModel)]="breakfast" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="lunch" class="col-sm-3 col-form-label">Lunch:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="lunch" [(ngModel)]="lunch" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="dinner" class="col-sm-3 col-form-label">Dinner:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="dinner" [(ngModel)]="dinner" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="snack" class="col-sm-3 col-form-label">Snack:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="snack" [(ngModel)]="snack" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="drink" class="col-sm-3 col-form-label">Drink:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="drink" [(ngModel)]="drink" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addMealPlan()">Add Meal Plan</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
