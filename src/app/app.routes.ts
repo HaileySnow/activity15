@@ -37,6 +37,7 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { TvshowListComponent } from './tvshow-list/tvshow-list.component';
 import { FurnitureListComponent } from './furniture-list/furniture-list.component';
 import { AccessoryListComponent } from './accessory-list/accessory-list.component';
+import { BuildingListComponent } from './building-list/building-list.component';
 
 
 export const routes: Routes = [
@@ -220,7 +221,11 @@ export const routes: Routes = [
 		component: AccessoryListComponent,
 		path: 'accessory-list',
 	},
-	
+	{
+		title: 'Building List',
+		component: BuildingListComponent,
+		path: 'building-list',
+	},
 
 
 	

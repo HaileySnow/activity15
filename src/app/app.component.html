@@ -1,49 +1,115 @@
-<div class="container">
-  <nav class="sidebar">
-    <ul>
-      <li><a href="/student-list">Student List</a></li>
-      <li><a href="/employee-list">Employee List</a></li>
-      <li><a href="/fruit-list">Fruit List</a></li>
-      <li><a href="/course-list">Course List</a></li>
-      <li><a href="/book-list">Book List</a></li>
-      <li><a href="/city-list">City List</a></li>
-      <li><a href="/movie-list">Movie List</a></li>
-      <li><a href="/carmodel-list">Car Model List</a></li>
-      <li><a href="/product-list">Product List</a></li>
-      <li><a href="/subject-list">Subject List</a></li>
-      <li><a href="/country-list">Country List</a></li>
-      <li><a href="/sports-list">Sports List</a></li>
-      <li><a href="/vegetables-list">Vegetables List</a></li>
-      <li><a href="/animals-list">Animals List</a></li>
-      <li><a href="/tool-list">Tool List</a></li>
-      <li><a href="/language-list">Language List</a></li>
-      <li><a href="/game-list">Game List</a></li>
-      <li><a href="/software-list">Software List</a></li>
-      <li><a href="/phonecontact-list">Phone Contact List</a></li>
-      <li><a href="/musicplay-list">Music Playlist</a></li>
-      <li><a href="/foodmenu-list">Food Menu List</a></li>
-      <li><a href="/grocery-list">Grocery List</a></li>
-      <li><a href="/classroom-list">Classroom List</a></li>
-      <li><a href="/inventory-list">Inventory List</a></li>
-      <li><a href="/lecture-list">Lecture List</a></li>
-      <li><a href="/stationery-list">Stationery List</a></li>
-      <li><a href="/flower-list">Flower List</a></li>
-      <li><a href="/destination-list">Destination List</a></li>
-      <li><a href="/laptop-list">Laptop List</a></li>
-      <li><a href="/laptop-specs-list">Laptop Specs List</a></li>
-      <li><a href="/computer-hardware-list">Computer Hardware List</a></li>
-      <li><a href="/mobile-app-list">Mobile App List</a></li>
-      <li><a href="/video-list">Video List</a></li>
-      <li><a href="/tvshow-list">TV Show List</a></li>
-      <li><a href="/furniture-list">Furniture List</a></li>
-      <li><a href="/accessory-list">Accessory List</a></li>
-      <li><a href="/building-list">Building List</a></li>
-      <li><a href="/painting-list">Painting List</a></li>
-      <li><a href="/artist-list">Artist List</a></li>
-    </ul>
-  </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hailey's Website</title>
+    <style>
+        .container {
+            display: flex;
+        }
 
-  <main class="content">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+        .sidebar {
+            width: 20%;
+            max-height: 100vh; 
+            background-color: #f0f0f0;
+            padding: 10px;
+            overflow-y: auto; 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar a:hover {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+        }
+
+        .sidebar a.active {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                order: 1;
+            }
+
+            .content {
+                width: 100%;
+                order: 2;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" aria-label="Main Navigation">
+            <ul>
+                <li><a href="/student-list">Student List</a></li>
+                <li><a href="/employee-list">Employee List</a></li>
+                <li><a href="/fruit-list">Fruit List</a></li>
+                <li><a href="/course-list">Course List</a></li>
+                <li><a href="/book-list">Book List</a></li>
+                <li><a href="/city-list">City List</a></li>
+                <li><a href="/movie-list">Movie List</a></li>
+                <li><a href="/carmodel-list">Car Model List</a></li>
+                <li><a href="/product-list">Product List</a></li>
+                <li><a href="/subject-list">Subject List</a></li>
+                <li><a href="/country-list">Country List</a></li>
+                <li><a href="/sports-list">Sports List</a></li>
+                <li><a href="/vegetables-list">Vegetables List</a></li>
+                <li><a href="/animals-list">Animals List</a></li>
+                <li><a href="/tool-list">Tool List</a></li>
+                <li><a href="/language-list">Language List</a></li>
+                <li><a href="/game-list">Game List</a></li>
+                <li><a href="/software-list">Software List</a></li>
+                <li><a href="/phonecontact-list">Phone Contact List</a></li>
+                <li><a href="/musicplay-list">Music Playlist</a></li>
+                <li><a href="/foodmenu-list">Food Menu List</a></li>
+                <li><a href="/grocery-list">Grocery List</a></li>
+                <li><a href="/classroom-list">Classroom List</a></li>
+                <li><a href="/inventory-list">Inventory List</a></li>
+                <li><a href="/lecture-list">Lecture List</a></li>
+                <li><a href="/stationery-list">Stationery List</a></li>
+                <li><a href="/flower-list">Flower List</a></li>
+                <li><a href="/destination-list">Destination List</a></li>
+                <li><a href="/laptop-list">Laptop List</a></li>
+                <li><a href="/laptop-specs-list">Laptop Specs List</a></li>
+                <li><a href="/computer-hardware-list">Computer Hardware List</a></li>
+                <li><a href="/mobile-app-list">Mobile App List</a></li>
+                <li><a href="/video-list">Video List</a></li>
+                <li><a href="/tvshow-list">TV Show List</a></li>
+                <li><a href="/furniture-list">Furniture List</a></li>
+                <li><a href="/accessory-list">Accessory List</a></li>
+                <li><a href="/building-list">Building List</a></li>
+                <li><a href="/painting-list">Painting List</a></li>
+                <li><a href="/artist-list">Artist List</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</body>
+</html>
