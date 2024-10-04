@@ -30,6 +30,7 @@ import { StationaryListComponent } from './stationary-list/stationary-list.compo
 import { FlowerListComponent } from './flower-list/flower-list.component';
 import { DestinationListComponent } from './destination-list/destination-list.component';
 import { LaptopListComponent } from './laptop-list/laptop-list.component';
+import { LaptopSpecsListComponent } from './laptop-specs-list/laptop-specs-list.component';
 
 
 export const routes: Routes = [
@@ -178,6 +179,12 @@ export const routes: Routes = [
 		component: LaptopListComponent,
 		path: 'laptop-list',
 	},
+	{
+		title: 'Laptop Specs List',
+		component: LaptopSpecsListComponent,
+		path: 'laptop-specs-list',
+	},
+
 
 ]
 @NgModule({

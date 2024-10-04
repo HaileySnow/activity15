@@ -1,0 +1,106 @@
+<main class="container">
+    <h1 class="text-center">Laptop Specification List</h1>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Processor</th>
+                    <th>RAM</th>
+                    <th>Storage</th>
+                    <th>Display</th>
+                    <th>Graphics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let laptop of laptops">
+                    <td>{{ laptop.model }}</td>
+                    <td>{{ laptop.specs.processor }}</td>
+                    <td>{{ laptop.specs.ram }}</td>
+                    <td>{{ laptop.specs.storage }}</td>
+                    <td>{{ laptop.specs.display }}</td>
+                    <td>{{ laptop.specs.graphics }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="mt-4">Add New Laptop</h2>
+    
+    <div class="form-group row">
+        <label for="model" class="col-sm-3 col-form-label">Model:</label>
+        <div class="col-sm-9">
+            <input type="text" id="model" class="form-control" [(ngModel)]="model" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="processor" class="col-sm-3 col-form-label">Processor:</label>
+        <div class="col-sm-9">
+            <input type="text" id="processor" class="form-control" [(ngModel)]="processor" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ram" class="col-sm-3 col-form-label">RAM:</label>
+        <div class="col-sm-9">
+            <input type="text" id="ram" class="form-control" [(ngModel)]="ram" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="storage" class="col-sm-3 col-form-label">Storage:</label>
+        <div class="col-sm-9">
+            <input type="text" id="storage" class="form-control" [(ngModel)]="storage" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="display" class="col-sm-3 col-form-label">Display:</label>
+        <div class="col-sm-9">
+            <input type="text" id="display" class="form-control" [(ngModel)]="display" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="graphics" class="col-sm-3 col-form-label">Graphics:</label>
+        <div class="col-sm-9">
+            <input type="text" id="graphics" class="form-control" [(ngModel)]="graphics" required />
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" (click)="addLaptop()">Add Laptop</button>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
