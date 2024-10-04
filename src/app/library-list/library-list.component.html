@@ -1,0 +1,115 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Library List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Library Name</th>
+                        <th>Programming Language</th>
+                        <th>Description</th>
+                        <th>Developed By</th>
+                        <th>First Release</th>
+                        <th>Latest Release</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let library of libraries">
+                        <td>{{ library.libraryName }}</td>
+                        <td>{{ library.programmingLanguage }}</td>
+                        <td>{{ library.description }}</td>
+                        <td>{{ library.developedBy }}</td>
+                        <td>{{ library.firstRelease }}</td>
+                        <td>{{ library.latestRelease }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-library">
+            <h2 class="text-center">Add Library</h2>
+
+            <div class="form-group row">
+                <label for="libraryName" class="col-sm-3 col-form-label">Library Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="libraryName" [(ngModel)]="libraryName" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="programmingLanguage" class="col-sm-3 col-form-label">Programming Language:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="programmingLanguage" [(ngModel)]="programmingLanguage" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="description" [(ngModel)]="description" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="developedBy" class="col-sm-3 col-form-label">Developed By:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="developedBy" [(ngModel)]="developedBy" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="firstRelease" class="col-sm-3 col-form-label">First Release:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="firstRelease" [(ngModel)]="firstRelease" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="latestRelease" class="col-sm-3 col-form-label">Latest Release:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="latestRelease" [(ngModel)]="latestRelease" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addLibrary()">Add Library</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
