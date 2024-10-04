@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Presentation List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Presenter</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let presentation of presentations">
+                        <td>{{ presentation.topic }}</td>
+                        <td>{{ presentation.presenter }}</td>
+                        <td>{{ presentation.date }}</td>
+                        <td>{{ presentation.time }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-presentation">
+            <h2 class="text-center">Add Presentation</h2>
+
+            <div class="form-group row">
+                <label for="topic" class="col-sm-3 col-form-label">Topic:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="topic" [(ngModel)]="topic" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="presenter" class="col-sm-3 col-form-label">Presenter:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="presenter" [(ngModel)]="presenter" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="date" class="col-sm-3 col-form-label">Date:</label>
+                <div class="col-sm-9">
+                    <input type="date" id="date" [(ngModel)]="date" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="time" class="col-sm-3 col-form-label">Time:</label>
+                <div class="col-sm-9">
+                    <input type="time" id="time" [(ngModel)]="time" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addPresentation()">Add Presentation</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
