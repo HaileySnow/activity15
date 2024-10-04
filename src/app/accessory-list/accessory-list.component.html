@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Accessory List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Material</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let accessory of accessoryList">
+                        <td>{{ accessory.item }}</td>
+                        <td>{{ accessory.material }}</td>
+                        <td>{{ accessory.price }}</td>
+                        <td>{{ accessory.category }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-accessory">
+            <h2 class="text-center">Add Accessory</h2>
+
+            <div class="form-group row">
+                <label for="item" class="col-sm-3 col-form-label">Item:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="item" name="item" [(ngModel)]="item" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="material" class="col-sm-3 col-form-label">Material:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="material" name="material" [(ngModel)]="material" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="price" class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="price" name="price" [(ngModel)]="price" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="category" class="col-sm-3 col-form-label">Category:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="category" name="category" [(ngModel)]="category" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addAccessory()">Add Accessory</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
