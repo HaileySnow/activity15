@@ -1,0 +1,106 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Budget List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Budget</th>
+                        <th>Status</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let budget of budgets">
+                        <td>{{ budget.project }}</td>
+                        <td>{{ budget.budget }}</td>
+                        <td>{{ budget.status }}</td>
+                        <td>{{ budget.startDate }}</td>
+                        <td>{{ budget.endDate }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-budget">
+            <h2 class="text-center">Add Budget</h2>
+
+            <div class="form-group row">
+                <label for="project" class="col-sm-3 col-form-label">Project:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="project" [(ngModel)]="project" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="budget" class="col-sm-3 col-form-label">Budget:</label>
+                <div class="col-sm-9">
+                    <input type="number" id="budget" [(ngModel)]="budget" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="status" class="col-sm-3 col-form-label">Status:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="status" [(ngModel)]="status" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="startDate" class="col-sm-3 col-form-label">Start Date:</label>
+                <div class="col-sm-9">
+                    <input type="date" id="startDate" [(ngModel)]="startDate" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="endDate" class="col-sm-3 col-form-label">End Date:</label>
+                <div class="col-sm-9">
+                    <input type="date" id="endDate" [(ngModel)]="endDate" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addBudget()">Add Budget</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
