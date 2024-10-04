@@ -1,0 +1,97 @@
+<main>
+    <div class="container">
+        <h1 class="text-center">Composer List</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Popular Music</th>
+                        <th>Genre</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let composer of composers">
+                        <td>{{ composer.name }}</td>
+                        <td>{{ composer.popularMusic }}</td>
+                        <td>{{ composer.genre }}</td>
+                        <td>{{ composer.country }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="add-composer">
+            <h2 class="text-center">Add Composer</h2>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" [(ngModel)]="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="popularMusic" class="col-sm-3 col-form-label">Popular Music:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="popularMusic" [(ngModel)]="popularMusic" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="genre" class="col-sm-3 col-form-label">Genre:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="genre" [(ngModel)]="genre" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="country" class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="country" [(ngModel)]="country" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" (click)="addComposer()">Add Composer</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .container {
+        margin-top: 20px;
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    h1, h2 {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
