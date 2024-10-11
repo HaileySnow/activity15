@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import FrameworkList from '../Folders/frameworklist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FrameworkListService } from '../services/framework-list/framework-list.service';
 
 @Component({
   selector: 'app-framework-list',
@@ -12,8 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class FrameworkListComponent {
 
-  frameworks: FrameworkList[] = [];
-
+  frameworkList = [] as FrameworkList [];
+  constructor(private frameworkService:FrameworkListService){
+  this.frameworkList = frameworkService.getFramework();
+  }
 	name: string = '';
 	description: string = '';
 	developedBy: string = '';
@@ -21,13 +24,13 @@ export class FrameworkListComponent {
 	latestRelease: string = '';
 
 	addFramework() {
-		this.frameworks.push({
-			name: this.name,
-			description: this.description,
-			developedBy: this.developedBy,
-			firstRelease: this.firstRelease,
-			latestRelease: this.latestRelease,
-		});
+		this.frameworkService.addFramework(
+			this.name,
+			this.description,
+			this.developedBy,
+			this.firstRelease,
+			this.latestRelease,
+		);
 
 		this.name = '';
 		this.description = '';

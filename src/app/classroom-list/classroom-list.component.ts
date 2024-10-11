@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import ClassroomList from '../Folders/classroomlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ClassroomListService } from '../services/classroom-list/classroom-list.service';
 
 @Component({
   selector: 'app-classroom-list',
@@ -12,7 +13,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class ClassroomListComponent {
 
-  classroomList: ClassroomList[] = [];
+  classroomList = [] as ClassroomList [];
+  constructor(private classroomService:ClassroomListService){
+  this.classroomList = this.classroomService.getClassroom();
+  }
+
 
 	id: number = 0;
 	section: string = '';
@@ -20,12 +25,12 @@ export class ClassroomListComponent {
 	studentCount: number = 0;
 
 	addNewClassroom() {
-		this.classroomList.push({
-			id: this.id,
-			section: this.section,
-			teacher: this.teacher,
-			studentCount: this.studentCount,
-		});
+		this.classroomService.addClassroom(
+	    this.id,
+	    this.section,
+		this.teacher,
+		this.studentCount,
+		);
 		this.id = 0;
 		this.section = '';
 		this.teacher = '';

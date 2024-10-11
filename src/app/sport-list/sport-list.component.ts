@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Sports from '../Folders/sportlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SportListService } from '../services/sport-list/sport-list.service';
 
 @Component({
   selector: 'app-sport-list',
@@ -12,20 +13,23 @@ import { FormsModule } from '@angular/forms';
 })
 export class SportListComponent {
 
-  sports: Sports[] = [];
+  sports = [] as Sports [];
+  constructor(private sportService:SportListService){
+	this.sports = this.sportService.getSport();
+  }
 
-	id: string = '';
+	id: number = 0;
 	name: string = '';
 	team: string = '';
 
 	addSport(): void {
-		this.sports.push({
-			id: Number(this.id),
-			name: this.name,
-			team: this.team,
-		});
+		this.sportService.addSport(
+			this.id,
+			this.name,
+			this.team,
+		);
 
-		this.id = '';
+		this.id = 0;
 		this.name = '';
 		this.team = '';
 	}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Vegetables from '../Folders/vegetableslist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { VegetablesListService } from '../services/vegetables-list/vegetables-list.service';
 
 @Component({
   selector: 'app-vegetables-list',
@@ -12,22 +13,25 @@ import { FormsModule } from '@angular/forms';
 })
 export class VegetablesListComponent {
 
-  vegetables: Vegetables[] = [];
+  vegetables = [] as Vegetables [];
+  constructor(private vegetablesService:VegetablesListService){
+  this.vegetables = this.vegetablesService.getVegetables();
+  }
 
-	id: string = '';
+	id: number = 0;
 	name: string = '';
-	price: string = '';
+	price: number = 0;
 
 	addVegetable(): void {
-		this.vegetables.push({
-			id: Number(this.id),
-			name: this.name,
-			price: Number(this.price),
-		});
+		this.vegetablesService.addVegetables(
+		this.id,
+		this.name,
+		this.price,
+		);
 
-		this.id = '';
+		this.id = 0;
 		this.name = '';
-		this.price = '';
+		this.price = 0;
 	}
 
 }

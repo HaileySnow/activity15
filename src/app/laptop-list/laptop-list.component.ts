@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import LaptopList from '../Folders/laptoplist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LanguageListService } from '../services/language-list/language-list.service';
+import { LaptopListService } from '../services/laptop-list/laptop-list.service';
 
 @Component({
   selector: 'app-laptop-list',
@@ -12,7 +14,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class LaptopListComponent {
 
-  laptops: LaptopList[] = [];
+  laptopList = [] as LaptopList [];
+
+  constructor(private laptopService:LaptopListService){
+  this.laptopList = this.laptopService.getLaptop();
+  }
 	model: string = '';
 	brand: string = '';
 	price: number = 0;
@@ -23,16 +29,16 @@ export class LaptopListComponent {
 	graphics: string = '';
 
 	addLaptop() {
-		this.laptops.push({
-			model: this.model,
-			brand: this.brand,
-			price: this.price,
-			processor: this.processor,
-			ram: this.ram,
-			storage: this.storage,
-			display: this.display,
-			graphics: this.graphics,
-		});
+		this.laptopService.addLaptop(
+		this.model,
+		this.brand,
+		this.price,
+		this.processor,
+		this.ram,
+		this.storage,
+		this.display,
+		this.graphics,
+		);
 		this.model = '';
 		this.brand = '';
 		this.price = 0;

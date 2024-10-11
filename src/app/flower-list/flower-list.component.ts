@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import FlowerList from '../Folders/flowerlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FlowerListService } from '../services/flower-list/flower-list.service';
 
 @Component({
   selector: 'app-flower-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class FlowerListComponent {
 
-  flowerList: FlowerList[] = [];
+  flowerList = [] as FlowerList [];
+  constructor(private flowerService:FlowerListService){
+	this.flowerList = this.flowerService.getFlower();
+  }
 	
 	name: string = '';
 	description: string = '';
@@ -20,12 +24,12 @@ export class FlowerListComponent {
 	quantity: number = 0;
 
 	addFlower() {
-		this.flowerList.push({
-			name: this.name,
-			description: this.description,
-			price: this.price,
-			quantity: this.quantity,
-		});
+		this.flowerService.addFlower(
+			this.name,
+			this.description,
+			this.price,
+			this.quantity,
+		);
 
 		
 		this.name = '';

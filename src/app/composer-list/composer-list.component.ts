@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import ComposerList from '../Folders/composerlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ComposerListService } from '../services/composer-list/composer-list.service';
 
 @Component({
   selector: 'app-composer-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class ComposerListComponent {
 
-  composers: ComposerList[] = [];
+    composerList = [] as ComposerList [];
+	constructor(private composerService:ComposerListService){
+	this.composerList = this.composerService.getComposer();
+	}
 
 	name: string = '';
 	popularMusic: string = '';
@@ -20,12 +24,12 @@ export class ComposerListComponent {
 	country: string = '';
 
 	addComposer() {
-		this.composers.push({
-			name: this.name,
-			popularMusic: this.popularMusic,
-			genre: this.genre,
-			country: this.country,
-		});
+		this.composerService.addComposer(
+		this.name,
+		this.popularMusic,
+		this.genre,
+		this.country,
+		);
 
 		this.name = '';
 		this.popularMusic = '';

@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import BookList from '../Folders/booklist';
+import { BookListService } from '../services/book-list/book-list.service';
 
 @Component({
   selector: 'app-book-list',
@@ -12,20 +13,24 @@ import BookList from '../Folders/booklist';
 })
 export class BookListComponent {
 
-  books: BookList[] = [];
+  bookList = [] as BookList[];
+book: any;
+  constructor(private bookService:BookListService){
+  this.bookList = this.bookService.getBook();
+  }
 
-	id: string = '';
+	id: number = 0;
 	name: string = '';
 	isbn: string = '';
 
 	addBook(): void {
-		this.books.push({
-			id: this.id,
-			name: this.name,
-			isbn: this.isbn,
-		});
+		this.bookService.addBook(
+			this.id,
+			this.name,
+			this.isbn,
+		);
 
-		this.id = '';
+		this.id = 0;
 		this.name = '';
 		this.isbn = '';
 	}

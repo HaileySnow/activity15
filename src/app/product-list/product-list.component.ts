@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Product from '../Folders/productlist';
+import { ProductListService } from '../services/product-list/product-list.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,19 +13,22 @@ import Product from '../Folders/productlist';
 })
 export class ProductListComponent {
 
-  products: Product[] = [];
-	id: string = '';
+  product = [] as Product [];
+  constructor(private productService:ProductListService){
+  this.product = this.productService.getProduct();
+  }
+	id: number = 0;
 	name: string = '';
 	price: number = 0;
 
 	addProduct(): void {
-		this.products.push({
-			id: Number(this.id),
-			name: this.name,
-			price: this.price,
-		});
+		this.productService.addProduct(
+		this.id,
+		this.name,
+		this.price,
+		);
 
-		this.id = '';
+		this.id = 0;
 		this.name = '';
 		this.price = 0;
 	}

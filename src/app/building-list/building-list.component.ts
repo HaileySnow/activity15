@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import BuildingList from '../Folders/buildinglist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BuildingListService } from '../services/building-list/building-list.service';
 
 @Component({
   selector: 'app-building-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class BuildingListComponent {
 
-  buildingList: BuildingList[] = [];
+  buildingList = [] as BuildingList [];
+  constructor(private buildingService:BuildingListService){
+  this.buildingList = this.buildingService.getBuildings();
+  }
 
 	name: string = '';
 	address: string = '';
@@ -20,14 +24,14 @@ export class BuildingListComponent {
 	rooms: number = 0;
 	occupants: number = 0;
 
-	addBuilding() {
-		this.buildingList.push({
-			name: this.name,
-			address: this.address,
-			floors: this.floors,
-			rooms: this.rooms,
-			occupants: this.occupants,
-		});
+	addBuilding(){
+		this.buildingService.addBuilding(
+			this.name,
+			this.address,
+			this.floors,
+			this.rooms,
+			this.occupants,
+		);
 
 		this.name = '';
 		this.address = '';

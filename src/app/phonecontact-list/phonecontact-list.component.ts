@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import PhoneContactList from '../Folders/phonecontactlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PhonecontactListService } from '../services/phonecontact-list/phonecontact-list.service';
 
 @Component({
   selector: 'app-phonecontact-list',
@@ -12,21 +13,25 @@ import { FormsModule } from '@angular/forms';
 })
 export class PhonecontactListComponent {
 
-  phoneContactList: PhoneContactList[] = [];
+  phoneContactList = [] as PhoneContactList [];
+  constructor(private phonecontactService:PhonecontactListService){
+  this.phoneContactList = phonecontactService.getPhoneContact();
+  }
+
 	name: string = '';
 	email: string = '';
-	phone: string = '';
+	phone: number = 0;
 
 	addPhoneContact(): void {
-		this.phoneContactList.push({
-			name: this.name,
-			email: this.email,
-			phone: this.phone,
-		});
+		this.phonecontactService.addPhoneContact(
+		this.name,
+		this.email,
+		this.phone,
+		);
 
 		this.name = '';
 		this.email = '';
-		this.phone = '';
+		this.phone = 0;
 	}
 
 }

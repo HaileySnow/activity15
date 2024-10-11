@@ -1,5 +1,5 @@
 export default interface FruitList {
-	id: string;
+	id: number;
 	name: string;
 	quantity: number;
 	price: number;

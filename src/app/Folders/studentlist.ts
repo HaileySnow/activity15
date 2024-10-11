@@ -1,6 +1,6 @@
 export default interface StudentList {
 	id: string;
 	name: string;
-	grade: string;
+	grade: number;
 	age: number;
 }

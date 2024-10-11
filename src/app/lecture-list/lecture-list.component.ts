@@ -3,6 +3,7 @@ import InventoryList from '../Folders/inventorylist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import LectureList from '../Folders/lecturelist';
+import { LectureListService } from '../services/lecture-list/lecture-list.service';
 
 @Component({
   selector: 'app-lecture-list',
@@ -13,19 +14,22 @@ import LectureList from '../Folders/lecturelist';
 })
 export class LectureListComponent {
 
-  lectureList: LectureList[] = [];
+  lectureList = [] as LectureList [];
+  constructor(private lectureService:LectureListService){
+  this.lectureList = this.lectureService.getlecture();
+  }
 
 	name: string = '';
 	duration: number = 0;
 	instructor: string = '';
 
 	addLecture() {
-		this.lectureList.push({
+		this.lectureService.addLecture(
 	
-			name: this.name,
-			duration: this.duration,
-			instructor: this.instructor,
-		});
+	    this.name,
+		this.duration,
+		this.instructor,
+		);
 		
 		this.name = '';
 		this.duration = 0;

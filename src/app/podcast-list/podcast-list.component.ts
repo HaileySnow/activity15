@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import PodcastList from '../Folders/podcastlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PodcastListService } from '../services/podcast-list/podcast-list.service';
 
 @Component({
   selector: 'app-podcast-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class PodcastListComponent {
 
-  podcasts: PodcastList[] = [];
+  podcastList = [] as PodcastList [];
+  constructor(private podcastService:PodcastListService){
+	this.podcastList = this.podcastService.getPodcast();
+  }
 
 	name: string = '';
 	host: string = '';
@@ -20,12 +24,12 @@ export class PodcastListComponent {
 	episodeNumber: number = 0;
 
 	addPodcast() {
-		this.podcasts.push({
-			name: this.name,
-			host: this.host,
-			genre: this.genre,
-			episodeNumber: this.episodeNumber,
-		});
+		this.podcastService.addPodcast(
+		this.name,
+		this.host,
+		this.genre,
+		this.episodeNumber,
+		);
 
 		this.name = '';
 		this.host = '';

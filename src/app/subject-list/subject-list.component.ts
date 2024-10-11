@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Subject from '../Folders/subjectlist';
+import { SubjectListService } from '../services/subject-list/subject-list.service';
 
 @Component({
   selector: 'app-subject-list',
@@ -11,21 +12,24 @@ import Subject from '../Folders/subjectlist';
   styleUrl: './subject-list.component.css'
 })
 export class SubjectListComponent {
-  subjects: Subject[] = [];
+  subject = [] as Subject [];
+  constructor(private subjectService:SubjectListService){
+  this.subject = this.subjectService.getSubject();
+  }
 
-	id: string = '';
+	id: number = 0;
 	subs: string = '';
 	teacher: string = '';
   
 
 	addSubject(): void {
-		this.subjects.push({
-			id: Number(this.id),
-			subs: this.subs,
-			teacher: this.teacher,
-		});
+		this.subjectService.addSubject(
+			this.id,
+			this.subs,
+			this.teacher,
+		);
 
-		this.id = '';
+		this.id = 0;
 		this.subs = '';
 		this.teacher = '';
 	}

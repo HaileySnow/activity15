@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import EventList from '../Folders/eventlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EventListService } from '../services/event-list/event-list.service';
 
 @Component({
   selector: 'app-event-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class EventListComponent {
 
-  events: EventList[] = [];
+  eventList = [] as EventList [];
+  constructor(private eventService: EventListService){
+  this.eventList = this.eventService.getEvent();
+  }
 
 	eventDate: string = '';
 	eventName: string = '';
@@ -21,13 +25,13 @@ export class EventListComponent {
 	eventDuration: string = '';
 
 	addEvent() {
-		this.events.push({
-			eventDate: this.eventDate,
-			eventName: this.eventName,
-			eventLocation: this.eventLocation,
-			eventPrice: this.eventPrice,
-			eventDuration: this.eventDuration,
-		});
+		this.eventService.addEvent(
+			this.eventDate,
+			this.eventName,
+			this.eventLocation,
+			this.eventPrice,
+			this.eventDuration,
+		);
 
 		this.eventDate = '';
 		this.eventName = '';

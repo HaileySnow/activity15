@@ -2,6 +2,8 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import CarModel from '../Folders/carmodellist';
+import CarModelList from '../Folders/carmodellist';
+import { CarmodelListService } from '../services/carmodel-list/carmodel-list.service';
 
 @Component({
   selector: 'app-carmodel-list',
@@ -11,6 +13,11 @@ import CarModel from '../Folders/carmodellist';
   styleUrl: './carmodel-list.component.css'
 })
 export class CarmodelListComponent {
+
+	carmodelList = [] as CarModelList [];
+	constructor(private carmodelService:CarmodelListService){
+	this.carModels = this.carmodelService.getCarmodel();
+	}
 
   carModels: CarModel[] = [];
 	id: string = '';

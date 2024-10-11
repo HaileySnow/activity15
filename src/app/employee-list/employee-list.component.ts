@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EmployeeList } from '../Folders/employeelist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EmployeeListService } from '../services/employee-list/employee-list.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,24 +12,27 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './employee-list.component.css'
 })
 export class EmployeeListComponent {
-  employees: EmployeeList[] = [];
+  employeeList = [] as EmployeeList [];
+  constructor(private employeeService:EmployeeListService){
+  this.employeeList = this.employeeService.getEmployee();
+  }
 
-	id: string = '';
+	id: number = 0;
 	name: string = '';
 	position: string = '';
 	age: number = 0;
 
 	addEmployee(): void {
-		this.employees.push({
-			id: this.id,
-			name: this.name,
-			position: this.position,
-			age: this.age,
-		});
+		this.employeeService.addEmployee(
+			this.id,
+			this.name,
+			this.position,
+			this.age,
+		);
 
 		this.age = 0;
 		this.position = '';
-		this.id = '';
+		this.id = 0;
 		this.name = '';
 	}
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import StationeryList from '../Folders/stationarylist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StationaryListService } from '../services/stationary-list/stationary-list.service';
 
 @Component({
   selector: 'app-stationary-list',
@@ -11,26 +12,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './stationary-list.component.css'
 })
 export class StationaryListComponent {
-addLecture() {
-throw new Error('Method not implemented.');
-}
 
-  stationeryList: StationeryList[] = [];
+
+  stationeryList = [] as StationeryList [];
+  constructor(private stationeryService:StationaryListService){
+  this.stationeryList = this.stationeryService.getStationery();
+  }
 
 	name: string = '';
 	quantity: number = 0;
 	price: number = 0;
-lectureList: any;
-duration: any;
-instructor: any;
 
 	addNewStationery() {
-		this.stationeryList.push({
+		this.stationeryService.addStationery(
 			
-			name: this.name,
-			quantity: this.quantity,
-			price: this.price,
-		});
+		this.name,
+		this.quantity,
+	    this.price,
+		);
 		
 		this.name = '';
 		this.quantity = 0;

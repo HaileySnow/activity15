@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import FurnitureList from '../Folders/furniturelist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FurnitureListService } from '../services/furniture-list/furniture-list.service';
 
 @Component({
   selector: 'app-furniture-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class FurnitureListComponent {
 
-  furnitureList: FurnitureList[] = [];
+  furnitureList = [] as FurnitureList [];
+  constructor(private furnitureService:FurnitureListService){
+  this.furnitureList = this.furnitureService.getFurniture();
+  }
 
 	name: string = '';
 	material: string = '';
@@ -20,12 +24,12 @@ export class FurnitureListComponent {
 	category: string = '';
 
 	addFurniture() {
-		this.furnitureList.push({
-			name: this.name,
-			material: this.material,
-			price: this.price,
-			category: this.category,
-		});
+		this.furnitureService.addFurniture(
+			this.name,
+			this.material,
+			this.price,
+			this.category,
+		);
 		this.name = '';
 		this.material = '';
 		this.price = 0;

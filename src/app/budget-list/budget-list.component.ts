@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import BudgetList from '../Folders/bugdetlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BudgetListService } from '../services/budget-list/budget-list.service';
 
 @Component({
   selector: 'app-budget-list',
@@ -12,7 +13,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class BudgetListComponent {
 
-  budgets: BudgetList[] = [];
+  budgetList = [] as BudgetList [];
+  constructor(private budgetService:BudgetListService){
+  this.budgetList = this.budgetService.getBudget();
+
+  }
 
 	project: string = '';
 	budget: number = 0;
@@ -21,13 +26,13 @@ export class BudgetListComponent {
 	endDate: string = '';
 
 	addBudget() {
-		this.budgets.push({
-			project: this.project,
-			budget: this.budget,
-			status: this.status,
-			startDate: this.startDate,
-			endDate: this.endDate,
-		});
+		this.budgetService.addBudget(
+			this.project,
+			this.budget,
+			this.status,
+			this.startDate,
+			this.endDate,
+		);
 
 		this.project = '';
 		this.budget = 0;

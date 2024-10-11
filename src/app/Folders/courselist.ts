@@ -1,5 +1,5 @@
 export interface CourseList {
-	id: string;
+	id: number;
 	name: string;
 	teacher: string;
 	credit: number;

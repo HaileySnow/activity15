@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import TvShowList from '../Folders/tvshowlist';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TvshowListService } from '../services/tvshow-list/tvshow-list.service';
 
 @Component({
   selector: 'app-tvshow-list',
@@ -12,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class TvshowListComponent {
 
-  tvShowList: TvShowList[] = [];
+  tvShowList = [] as TvShowList [];
+  constructor(private tvshowService:TvshowListService){
+  this.tvShowList = this.tvshowService.getTvShow();
+  }
 	name: string = '';
 	description: string = '';
 	url: string = '';
@@ -20,13 +24,13 @@ export class TvshowListComponent {
 	category: string = '';
 
 	addTvShow() {
-		this.tvShowList.push({
-			name: this.name,
-			description: this.description,
-			url: this.url,
-			rating: this.rating,
-			category: this.category,
-		});
+		this.tvshowService.addTvShow(
+		this.name,
+		this.description,
+		this.url,
+		this.rating,
+		this.category,
+		);
 		this.name = '';
 		this.description = '';
 		this.url = '';
